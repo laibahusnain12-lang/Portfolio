@@ -177,6 +177,7 @@ main {
   margin-top: 14px;
   background: linear-gradient(90deg, var(--accent), transparent);
   border-radius: 99px;
+  animation: glow-shift 6s ease-in-out infinite;
 }
 
 .lede {
@@ -341,6 +342,7 @@ main {
   height: 2px;
   margin-top: 10px;
   background: linear-gradient(90deg, var(--accent), transparent);
+  animation: glow-shift 6s ease-in-out infinite;
 }
 
 .section-subtitle {
@@ -424,6 +426,7 @@ main {
   letter-spacing: 2px;
   color: var(--accent);
   text-align: right;
+  animation: glow-shift 8s ease-in-out infinite;
 }
 
 .project-grid {
@@ -645,6 +648,21 @@ main {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes glow-shift {
+  0% {
+    filter: hue-rotate(0deg);
+    opacity: 1;
+  }
+  50% {
+    filter: hue-rotate(18deg);
+    opacity: 0.85;
+  }
+  100% {
+    filter: hue-rotate(0deg);
+    opacity: 1;
   }
 }
 
