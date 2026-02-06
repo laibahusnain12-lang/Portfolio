@@ -1,4 +1,5 @@
 const revealElements = document.querySelectorAll('.reveal');
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 const observer = new IntersectionObserver(
   (entries) => {
@@ -13,6 +14,63 @@ const observer = new IntersectionObserver(
 );
 
 revealElements.forEach((el) => observer.observe(el));
+
+const counters = document.querySelectorAll('.count');
+if (counters.length) {
+  const countObserver = new IntersectionObserver(
+    (entries, obs) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target;
+        const target = Number(el.dataset.target || 0);
+        if (prefersReducedMotion) {
+          el.textContent = target;
+          obs.unobserve(el);
+          return;
+        }
+        if (el.dataset.counted === 'true') return;
+        el.dataset.counted = 'true';
+        const duration = 1200;
+        const startTime = performance.now();
+        const tick = (now) => {
+          const progress = Math.min((now - startTime) / duration, 1);
+          const value = Math.floor(progress * target);
+          el.textContent = value;
+          if (progress < 1) {
+            requestAnimationFrame(tick);
+          } else {
+            el.textContent = target;
+            obs.unobserve(el);
+          }
+        };
+        requestAnimationFrame(tick);
+      });
+    },
+    { threshold: 0.6 }
+  );
+
+  counters.forEach((el) => countObserver.observe(el));
+}
+
+const hero = document.querySelector('.hero');
+if (hero && !prefersReducedMotion && !window.matchMedia('(pointer: coarse)').matches) {
+  let rafId = null;
+  const onMove = (event) => {
+    const rect = hero.getBoundingClientRect();
+    const x = (event.clientX - rect.left) / rect.width - 0.5;
+    const y = (event.clientY - rect.top) / rect.height - 0.5;
+    if (rafId) cancelAnimationFrame(rafId);
+    rafId = requestAnimationFrame(() => {
+      hero.style.setProperty('--px', `${x * 18}px`);
+      hero.style.setProperty('--py', `${y * 18}px`);
+    });
+  };
+  hero.addEventListener('mousemove', onMove);
+  hero.addEventListener('mouseleave', () => {
+    hero.style.setProperty('--px', '0px');
+    hero.style.setProperty('--py', '0px');
+  });
+}
 
 const canvas = document.getElementById('heroCanvas');
 if (canvas && window.THREE) {

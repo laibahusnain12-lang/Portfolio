@@ -119,6 +119,8 @@ main {
   align-items: start;
   border-bottom: 1px solid var(--line);
   overflow: hidden;
+  --px: 0px;
+  --py: 0px;
 }
 
 .hero-left {
@@ -285,6 +287,8 @@ main {
   width: 100%;
   overflow: hidden;
   z-index: 1;
+  transform: translate3d(calc(var(--px) * 0.2), calc(var(--py) * 0.2), 0);
+  transition: transform 0.2s ease;
 }
 
 .hero-3d canvas {
@@ -305,6 +309,8 @@ main {
   opacity: 0.18;
   z-index: 0;
   animation: float 9s ease-in-out infinite;
+  transform: translate3d(calc(var(--px) * 0.6), calc(var(--py) * 0.6), 0);
+  transition: transform 0.25s ease;
 }
 
 .orb-a {
@@ -392,6 +398,8 @@ main {
   background: rgba(17, 17, 20, 0.6);
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
   border-radius: 16px;
+  position: relative;
+  overflow: hidden;
 }
 
 .highlight-card h3 {
@@ -402,6 +410,19 @@ main {
 
 .highlight-card p {
   color: var(--muted);
+}
+
+.highlight-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 10% 10%, rgba(138, 164, 255, 0.18), transparent 55%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.highlight-card:hover::after {
+  opacity: 1;
 }
 
 .work-list {
@@ -561,7 +582,7 @@ main {
   background: linear-gradient(150deg, rgba(22, 22, 28, 0.85), rgba(12, 12, 16, 0.8));
   position: relative;
   overflow: hidden;
-  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
 }
 
 .skill-card::after {
@@ -574,13 +595,22 @@ main {
 }
 
 .skill-card:hover {
-  transform: translateY(-6px);
+  transform: translateY(-6px) scale(1.01);
   border-color: rgba(255, 255, 255, 0.2);
   box-shadow: 0 18px 32px rgba(0, 0, 0, 0.35);
+  background: linear-gradient(150deg, rgba(28, 28, 36, 0.92), rgba(14, 14, 18, 0.85));
 }
 
 .skill-card:hover::after {
   opacity: 1;
+}
+
+.skill-card:hover .skill-top h3 {
+  color: #a0ffe6;
+}
+
+.skill-card:hover .skill-bar span {
+  box-shadow: 0 0 18px rgba(138, 164, 255, 0.45);
 }
 
 .skill-top {
@@ -804,6 +834,7 @@ main {
 
   .hero-3d {
     min-height: 240px;
+    transform: none;
   }
 
   .work-item {
