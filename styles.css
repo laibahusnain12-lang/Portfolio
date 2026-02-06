@@ -175,9 +175,17 @@ main {
   width: 110px;
   height: 4px;
   margin-top: 14px;
-  background: linear-gradient(90deg, var(--accent), transparent);
+  background: linear-gradient(
+    90deg,
+    #ffb86c,
+    #ffd36c,
+    #8aa4ff,
+    #a0ffe6,
+    transparent
+  );
+  background-size: 220% 100%;
   border-radius: 99px;
-  animation: glow-shift 6s ease-in-out infinite;
+  animation: glow-shift 6s ease-in-out infinite, hue-sweep 10s linear infinite;
 }
 
 .lede {
@@ -341,8 +349,16 @@ main {
   width: 36px;
   height: 2px;
   margin-top: 10px;
-  background: linear-gradient(90deg, var(--accent), transparent);
-  animation: glow-shift 6s ease-in-out infinite;
+  background: linear-gradient(
+    90deg,
+    #ffb86c,
+    #ffd36c,
+    #8aa4ff,
+    #a0ffe6,
+    transparent
+  );
+  background-size: 220% 100%;
+  animation: glow-shift 6s ease-in-out infinite, hue-sweep 12s linear infinite;
 }
 
 .section-subtitle {
@@ -657,12 +673,24 @@ main {
     opacity: 1;
   }
   50% {
-    filter: hue-rotate(18deg);
+    filter: hue-rotate(35deg);
     opacity: 0.85;
   }
   100% {
     filter: hue-rotate(0deg);
     opacity: 1;
+  }
+}
+
+@keyframes hue-sweep {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
   }
 }
 
