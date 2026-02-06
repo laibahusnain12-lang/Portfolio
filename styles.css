@@ -547,6 +547,94 @@ main {
   transform: translateY(-3px);
 }
 
+.skill-showcase {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 20px;
+  margin-top: 26px;
+}
+
+.skill-card {
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: linear-gradient(150deg, rgba(22, 22, 28, 0.85), rgba(12, 12, 16, 0.8));
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.skill-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 10% 10%, rgba(255, 184, 108, 0.18), transparent 55%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.skill-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 18px 32px rgba(0, 0, 0, 0.35);
+}
+
+.skill-card:hover::after {
+  opacity: 1;
+}
+
+.skill-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+  position: relative;
+  z-index: 1;
+}
+
+.skill-top h3 {
+  font-family: "Syne", sans-serif;
+  font-size: 20px;
+}
+
+.skill-top span {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--accent-2);
+}
+
+.skill-bar {
+  position: relative;
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+  margin-bottom: 12px;
+  z-index: 1;
+}
+
+.skill-bar span {
+  display: block;
+  height: 100%;
+  width: 0;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #ffb86c, #ffd36c, #8aa4ff, #a0ffe6);
+  box-shadow: 0 0 12px rgba(160, 255, 230, 0.35);
+  transition: width 1.2s ease;
+}
+
+.skill-card.in-view .skill-bar span {
+  width: var(--level);
+}
+
+.skill-card p {
+  color: var(--muted);
+  position: relative;
+  z-index: 1;
+}
+
 .testimonial-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
