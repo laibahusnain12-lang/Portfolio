@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Laiba Husnain | Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="https://unpkg.com/three@0.159.0/build/three.min.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="logo">LH</div>
+    <nav class="nav">
+      <a href="#top">Home</a>
+      <a href="#works">Works</a>
+      <a href="#services">Services</a>
+      <a href="#process">Process</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero reveal" id="top">
+      <div class="hero-left">
+        <div class="hero-text">
+          <p class="eyebrow">Laiba Husnain</p>
+          <h1>Computer Engineering Technology Student</h1>
+          <p class="lede">Passionate about building beautiful websites and powerful Android applications. I love turning ideas into reality through code.</p>
+          <div class="hero-actions">
+            <a class="btn" href="https://www.linkedin.com/in/laiba-husnain-485749321" target="_blank" rel="noopener">LinkedIn</a>
+            <a class="btn ghost" href="#works">View Projects</a>
+          </div>
+        </div>
+      </div>
+      <div class="hero-right">
+        <div class="hero-side">
+          <p class="side-title">About Me</p>
+          <p>I'm a Computer Engineering Technology student focused on web and Android development. I enjoy solving complex problems and creating user-friendly applications that deliver real value.</p>
+          <div class="hero-tags">
+            <span>Web development</span>
+            <span>Android app development</span>
+            <span>UI/UX Design</span>
+          </div>
+        </div>
+        <div class="hero-3d">
+          <canvas id="heroCanvas" aria-label="3D abstract model"></canvas>
+          <div class="canvas-label">3D FORM</div>
+        </div>
+      </div>
+      <div class="hero-orb orb-a"></div>
+      <div class="hero-orb orb-b"></div>
+    </section>
+
+    <section class="highlights reveal" id="highlights">
+      <div class="section-title">Highlights</div>
+      <div class="highlight-grid">
+        <div class="highlight-card">
+          <h3>4+</h3>
+          <p>Projects delivered across web and Android.</p>
+        </div>
+        <div class="highlight-card">
+          <h3>11+</h3>
+          <p>Technologies in active practice.</p>
+        </div>
+        <div class="highlight-card">
+          <h3>Always Learning</h3>
+          <p>Focused on clean UI, accessibility, and performance.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="works reveal" id="works">
+      <div class="section-title">Works</div>
+      <div class="section-subtitle">Latest Projects</div>
+      <div class="work-list">
+        <article class="work-item reveal">
+          <span class="work-index">01</span>
+          <div class="work-info">
+            <h3>Weather App</h3>
+            <p>Real-time forecasts, location search, and responsive layouts.</p>
+          </div>
+          <span class="work-tag">Web App</span>
+        </article>
+        <article class="work-item reveal">
+          <span class="work-index">02</span>
+          <div class="work-info">
+            <h3>To-Do List App</h3>
+            <p>Task management with priorities, filters, and clean UX.</p>
+          </div>
+          <span class="work-tag">Productivity</span>
+        </article>
+        <article class="work-item reveal">
+          <span class="work-index">03</span>
+          <div class="work-info">
+            <h3>Music Website</h3>
+            <p>Modern landing experience with playlists and artist highlights.</p>
+          </div>
+          <span class="work-tag">UI Design</span>
+        </article>
+        <article class="work-item reveal">
+          <span class="work-index">04</span>
+          <div class="work-info">
+            <h3>Portfolio</h3>
+            <p>Personal brand site showcasing work, skills, and contact details.</p>
+          </div>
+          <span class="work-tag">Brand</span>
+        </article>
+      </div>
+    </section>
+
+    <section class="services reveal" id="services">
+      <div class="section-title">Services</div>
+      <div class="section-subtitle">What I Do</div>
+      <div class="service-grid">
+        <article class="service-card reveal">
+          <h3>Website Design</h3>
+          <p>Modern, responsive websites with clean typography and smooth interactions.</p>
+        </article>
+        <article class="service-card reveal">
+          <h3>Android Development</h3>
+          <p>Functional Android apps focused on performance and user experience.</p>
+        </article>
+        <article class="service-card reveal">
+          <h3>UI Engineering</h3>
+          <p>Pixel-accurate front-end builds with accessibility in mind.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="process reveal" id="process">
+      <div class="section-title">Process</div>
+      <div class="section-subtitle">How I Work</div>
+      <div class="process-steps">
+        <div class="process-step reveal">
+          <span>01</span>
+          <h3>Discover</h3>
+          <p>Understand goals, users, and the technical scope.</p>
+        </div>
+        <div class="process-step reveal">
+          <span>02</span>
+          <h3>Design</h3>
+          <p>Sketch flows and build clean, visual-first interfaces.</p>
+        </div>
+        <div class="process-step reveal">
+          <span>03</span>
+          <h3>Build</h3>
+          <p>Develop responsive layouts and interactive components.</p>
+        </div>
+        <div class="process-step reveal">
+          <span>04</span>
+          <h3>Refine</h3>
+          <p>Test, optimize, and polish for a seamless experience.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="skills reveal" id="skills">
+      <div class="section-title">Skills</div>
+      <div class="skills-grid">
+        <span class="reveal">C++</span>
+        <span class="reveal">Python</span>
+        <span class="reveal">Java</span>
+        <span class="reveal">Kotlin</span>
+        <span class="reveal">JavaScript</span>
+        <span class="reveal">HTML/CSS</span>
+        <span class="reveal">React</span>
+        <span class="reveal">MySQL</span>
+        <span class="reveal">MongoDB</span>
+        <span class="reveal">Linux</span>
+        <span class="reveal">MATLAB</span>
+      </div>
+    </section>
+
+    <section class="testimonials reveal" id="testimonials">
+      <div class="section-title">Testimonials</div>
+      <div class="testimonial-grid">
+        <article class="testimonial-card reveal">
+          <p>"Laiba brings clarity and polish to every interface she touches."</p>
+          <span>- Project Collaborator</span>
+        </article>
+        <article class="testimonial-card reveal">
+          <p>"Strong problem-solving skills and a great eye for design."</p>
+          <span>- Team Lead</span>
+        </article>
+      </div>
+    </section>
+
+    <section class="contact reveal" id="contact">
+      <div class="contact-box">
+        <div>
+          <p class="section-title">Contact</p>
+          <h2>Let’s connect.</h2>
+          <p>If you’re hiring, collaborating, or looking for a reliable developer, I’d be glad to connect and discuss how I can contribute.</p>
+        </div>
+        <div class="contact-actions">
+          <a class="btn" href="https://www.linkedin.com/in/laiba-husnain-485749321" target="_blank" rel="noopener">Message on LinkedIn</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Laiba Husnain 2026</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
